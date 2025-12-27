@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Favorita-TSA"
+version = "0.0.1"
+description = "Group Working Time Series Analysis for Favorita Stores"
+authors = [{ name = "42kiko" }, { name = "pat-olhed" }, { name = "AgusLuigi" }]
+readme = "README.md"
+requires-python = ">=3.10"
+
+dependencies = ["numpy>=1.26", "pandas>=2.1", "requests>=2.31"]
+
+[project.optional-dependencies]
+dev = ["pytest", "black", "ruff", "pre-commit"]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 88
+target-version = ["py310"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+select = [
+  "E", # Style errors
+  "F", # Logic errors
+  "I", # Import sorting
+  "B", # Bugbear (common bugs)
+
+  "UP",  # Modern Python upgrades
+  "SIM", # Code simplification
+  "C4",  # Better comprehensions
+  "ARG", # Unused function arguments
+  "RUF", # Ruff-specific rules
+]
+
+ignore = [
+  "E501", # line length (Black regelt das)
+]
